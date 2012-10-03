@@ -4,7 +4,7 @@
   <title><![CDATA[Learning to build awesome cool stuff!]]></title>
   <link href="http://stark-coast-3432.herokuapp.com/atom.xml" rel="self"/>
   <link href="http://stark-coast-3432.herokuapp.com/"/>
-  <updated>2012-10-03T15:30:00-04:00</updated>
+  <updated>2012-10-03T15:55:31-04:00</updated>
   <id>http://stark-coast-3432.herokuapp.com/</id>
   <author>
     <name><![CDATA[Jack Nolan]]></name>
@@ -12,5 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Day One]]></title>
+    <link href="http://stark-coast-3432.herokuapp.com/blog/2012/10/03/day-one/"/>
+    <updated>2012-10-03T15:39:00-04:00</updated>
+    <id>http://stark-coast-3432.herokuapp.com/blog/2012/10/03/day-one</id>
+    <content type="html"><![CDATA[<p>This is my First Day!</p>
+]]></content>
+  </entry>
   
 </feed>
