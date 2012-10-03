@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://jacknolan.com
+url: http://stark-coast-3432.herokuapp.com
 title: Learning to build awesome cool stuff!
 subtitle: In New York
 author: Jack Nolan
@@ -19,7 +19,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email: http://stark-coast-3432.herokuapp.com
+email: 
 
 # ----------------------- #
 #    Jekyll & Plugins     #
