@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Learning to build awesome cool stuff!]]></title>
-  <link href="http://stark-coast-3432.herokuapp.com/atom.xml" rel="self"/>
-  <link href="http://stark-coast-3432.herokuapp.com/"/>
-  <updated>2012-10-03T17:39:37-04:00</updated>
-  <id>http://stark-coast-3432.herokuapp.com/</id>
+  <link href="http://jacknolan.herokuapp.com//atom.xml" rel="self"/>
+  <link href="http://jacknolan.herokuapp.com//"/>
+  <updated>2012-10-09T00:44:31-04:00</updated>
+  <id>http://jacknolan.herokuapp.com//</id>
   <author>
     <name><![CDATA[Jack Nolan]]></name>
     
@@ -15,34 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Day One]]></title>
-    <link href="http://stark-coast-3432.herokuapp.com/blog/2012/10/03/day-one/"/>
+    <link href="http://jacknolan.herokuapp.com//blog/2012/10/03/day-one/"/>
     <updated>2012-10-03T15:39:00-04:00</updated>
-    <id>http://stark-coast-3432.herokuapp.com/blog/2012/10/03/day-one</id>
-    <content type="html"><![CDATA[<p>On the first day of our development school in NY our teacher decided to go with a nice easy activity, creating 20ish branches on the school website git project and everyone edit your profile page. Well more a trial by fire then an ‘easy’ task ;). We worked in groups of four our team took a very collaborative approach creating one git branch and all working on it together. Considering most of us had a very limited grasp on css, html, git workflow and git commands.  We all had watched roughly an hour of video on each these subjects in the pre-work and on day one had to use them. As to be expected when you have 20ish branches on a single project almost all managed by people without real git experience we&#8230; ran into a few issues, although it was better than expected! We stayed a bit late and got it all ironed out eventually (favorite commit message of the night “please go away!” -Avi) it was a great experience and helped to remove some of the jitters you experience when you run your first git commands (you’re sure this won&#8217;t destroy everything?&#8230; You&#8217;re sure right?). Tomorrow we will go over the individual styles we created and decided on one to go with as a class!</p>
-
-<p>Things we worked on,</p>
-
-<ul>
-<li>git workflow</li>
-<li>git conflict resolution (lots and lots of this)</li>
-<li>html</li>
-<li>css</li>
-</ul>
-
-
-<p>Code selection(s) of the day:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout “branchname”
-</span><span class='line'>git rebase master
-</span><span class='line'>//fix conflicts
-</span><span class='line'>git checkout master
-</span><span class='line'>git merge “branchname”</span></code></pre></td></tr></table></div></figure>
-
+    <id>http://jacknolan.herokuapp.com//blog/2012/10/03/day-one</id>
+    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   

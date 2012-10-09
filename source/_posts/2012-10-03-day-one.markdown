@@ -7,22 +7,4 @@ comments: true
 categories: #TrialByFire
 ---
 
-On the first day of our development school in NY our teacher decided to go with a nice easy activity, creating 20ish branches on the school website git project and everyone edit your profile page. Well more a trial by fire then an ‘easy’ task ;). We worked in groups of four our team took a very collaborative approach creating one git branch and all working on it together. Considering most of us had a very limited grasp on css, html, git workflow and git commands.  We all had watched roughly an hour of video on each these subjects in the pre-work and on day one had to use them. As to be expected when you have 20ish branches on a single project almost all managed by people without real git experience we... ran into a few issues, although it was better than expected! We stayed a bit late and got it all ironed out eventually (favorite commit message of the night “please go away!” -Avi) it was a great experience and helped to remove some of the jitters you experience when you run your first git commands (you’re sure this won't destroy everything?... You're sure right?). Tomorrow we will go over the individual styles we created and decided on one to go with as a class!
 
-Things we worked on,
-
-- git workflow
-- git conflict resolution (lots and lots of this)
-- html
-- css
-
-
-
-Code selection(s) of the day:
-```
-git checkout “branchname”
-git rebase master
-//fix conflicts
-git checkout master
-git merge “branchname”
-```
