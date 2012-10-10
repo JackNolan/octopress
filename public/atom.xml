@@ -4,7 +4,7 @@
   <title><![CDATA[Learning to build awesome cool stuff!]]></title>
   <link href="http://jacknolan.herokuapp.com//atom.xml" rel="self"/>
   <link href="http://jacknolan.herokuapp.com//"/>
-  <updated>2012-10-09T00:44:31-04:00</updated>
+  <updated>2012-10-10T13:23:33-04:00</updated>
   <id>http://jacknolan.herokuapp.com//</id>
   <author>
     <name><![CDATA[Jack Nolan]]></name>
@@ -14,11 +14,19 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Day One]]></title>
+    <title type="html"><![CDATA[Job indexing]]></title>
     <link href="http://jacknolan.herokuapp.com//blog/2012/10/03/day-one/"/>
     <updated>2012-10-03T15:39:00-04:00</updated>
     <id>http://jacknolan.herokuapp.com//blog/2012/10/03/day-one</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>Before I started at flatiron school this semester I worked for <a href="http://www.linkup.com/">JobDig</a> writing parsers and spiders to index jobs. It was good work and a great first experience in the tech industry. However there were a few common things I ran into on a day to day bases that I thought I would share to show potential employers some good practices when listing jobs.</p>
+
+<p>1) Use concise html and css. Since some poor soul out there (me) may have to wade through your html and css consider consolidating your html and css both to organize your site better but to help them index your jobs. Using constant naming schemes can save them time and get your openings out to the community.</p>
+
+<p>2) Don&#8217;t hide you employment page. Seriously, I have had to hack at the url in order to get to an employment page due to broken links or hidden job listings. By keeping it visible you make it easier for potential hires to apply for the job!</p>
+
+<p>3) Keep it simple. Same as number two, if you over complicate your application process the great candidates and job listings sites are going to skip your site which means less candidates. If you lack the time consider using an third party ( like <a href="">Taleo</a>!) to list your jobs in a proven organised way.</p>
+
+<p>It is in a company&#8217;s interest to have as many people as possible see their job listings. More views means more applications, which means more choice in candidates which leads to better hires! By keeping these tips in mind when designing your sites employment section you can help your potential hires find you quickly and efficiently.</p>
 ]]></content>
   </entry>
   
