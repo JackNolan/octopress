@@ -4,7 +4,7 @@
   <title><![CDATA[Learning to build awesome cool stuff!]]></title>
   <link href="http://jacknolan.herokuapp.com//atom.xml" rel="self"/>
   <link href="http://jacknolan.herokuapp.com//"/>
-  <updated>2012-10-10T13:23:33-04:00</updated>
+  <updated>2012-10-10T22:34:09-04:00</updated>
   <id>http://jacknolan.herokuapp.com//</id>
   <author>
     <name><![CDATA[Jack Nolan]]></name>
@@ -18,7 +18,7 @@
     <link href="http://jacknolan.herokuapp.com//blog/2012/10/03/day-one/"/>
     <updated>2012-10-03T15:39:00-04:00</updated>
     <id>http://jacknolan.herokuapp.com//blog/2012/10/03/day-one</id>
-    <content type="html"><![CDATA[<p>Before I started at flatiron school this semester I worked for <a href="http://www.linkup.com/">JobDig</a> writing parsers and spiders to index jobs. It was good work and a great first experience in the tech industry. However there were a few common things I ran into on a day to day bases that I thought I would share to show potential employers some good practices when listing jobs.</p>
+    <content type="html"><![CDATA[<p>Before I started at flatiron school this semester I worked for <a href="http://www.linkup.com/">JobDig</a> writing parsers and spiders to index jobs. It was good work and a great first experience in the tech industry. However, there were a few common things I ran into on a day to day bases that I thought I would share to show potential employers some good practices when listing jobs.</p>
 
 <p>1) Use concise html and css. Since some poor soul out there (me) may have to wade through your html and css consider consolidating your html and css both to organize your site better but to help them index your jobs. Using constant naming schemes can save them time and get your openings out to the community.</p>
 
