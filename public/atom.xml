@@ -4,7 +4,7 @@
   <title><![CDATA[Learning to build awesome cool stuff!]]></title>
   <link href="http://jacknolan.herokuapp.com//atom.xml" rel="self"/>
   <link href="http://jacknolan.herokuapp.com//"/>
-  <updated>2012-10-10T22:34:09-04:00</updated>
+  <updated>2012-10-14T17:35:55-04:00</updated>
   <id>http://jacknolan.herokuapp.com//</id>
   <author>
     <name><![CDATA[Jack Nolan]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby under the hood]]></title>
+    <link href="http://jacknolan.herokuapp.com//blog/2012/10/14/ruby-under-the-hood/"/>
+    <updated>2012-10-14T17:29:00-04:00</updated>
+    <id>http://jacknolan.herokuapp.com//blog/2012/10/14/ruby-under-the-hood</id>
+    <content type="html"><![CDATA[<p>After completing the computer architecture course at the University of Minnesota I find myself wondering about how things work at a low level. Now at the flatiron school we are covering ruby, and I find myself wondering how the memory allocation works for ruby objects. After a bit of searching I found this <a href="http://www.scribd.com/doc/27174770/Garbage-Collection-and-the-Ruby-Heap">slide deck</a>that contained a very clear explanation of the behind the scenes workings of ruby; While paying special attention to memory allocation and garbage collection.</p>
+
+<p>These slides reminded me of my final project in the architecture class where I implemented a rudimentary malloc of my own which, it turns out, works much like the allocation of memory for classes works in ruby. I wonder how hard it would be to implement this method of garbage collection on top of it&#8230; hopefully nothing good on tv next weekend!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Job indexing]]></title>
