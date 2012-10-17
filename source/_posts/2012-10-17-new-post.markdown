@@ -12,7 +12,7 @@ At one time or another I have experienced all major ways of learning computer sc
 
 ![Lecture hall](http://farm5.staticflickr.com/4031/4530228887_78634666ff_z.jpg "Lecture hall")
 
-No one is a stranger to the classic college formula these days: lecture on monday; test on friday. While University teaching works to educate a large number of students in a (relatively) short time, it does fall into a few pitfalls.
+No one is a stranger to the classic college formula these days lecture on monday, test on friday. While university teaching works to educate many students in a (relatively) short time, it does have many drawbacks.
 
 ###Cons:###
 
@@ -29,11 +29,11 @@ No one is a stranger to the classic college formula these days: lecture on monda
 	- professors tend to burn out from dealing bureaucracy
 	- stagnation 
 	- forms, hoops, and permissions
-	Cost
+4. Cost
 	- average cost of four year degree: $21,657
 	- this number increases every year
 	- takes four years of your life
-	Focused on theory
+5. Focused on theory
 	- great foundations
 	- does not really prepare you to develop
 
@@ -49,6 +49,6 @@ No one is a stranger to the classic college formula these days: lecture on monda
 
 ###To conclude:###
 
-Overall I dislike the current way programing is taught at university. However, I do understand why it is like this; They are paralyzed by bureaucracy and class sizes. It is almost impossible for professors to teach full time and keep up with the changing field of computer science. This forces a greater emphasis on theory which leads to graduates that can explain the O(n) of an algorithm they outlined, but have no idea how to launch a web server or an application.
+Overall I dislike the current way programing is taught at university. However, I do understand why it is like this: They are paralyzed by bureaucracy and class sizes. It is almost impossible for professors to teach full time and keep up with the changing field of computer science. This forces a greater emphasis on theory which leads to graduates that can explain the O(n) of an algorithm they outlined, but have no idea how to set up a web server or an application.
 
 Next up teaching yourself...
