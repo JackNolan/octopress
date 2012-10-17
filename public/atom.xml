@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Learning to build awesome cool stuff!]]></title>
+  <title><![CDATA[Adventures in code]]></title>
   <link href="http://jacknolan.herokuapp.com//atom.xml" rel="self"/>
   <link href="http://jacknolan.herokuapp.com//"/>
-  <updated>2012-10-14T17:35:55-04:00</updated>
+  <updated>2012-10-17T15:11:54-04:00</updated>
   <id>http://jacknolan.herokuapp.com//</id>
   <author>
     <name><![CDATA[Jack Nolan]]></name>
@@ -12,6 +12,90 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Classroom Vs. bedroom Vs. Lecture Hall (Part one)]]></title>
+    <link href="http://jacknolan.herokuapp.com//blog/2012/10/17/new-post/"/>
+    <updated>2012-10-17T12:33:00-04:00</updated>
+    <id>http://jacknolan.herokuapp.com//blog/2012/10/17/new-post</id>
+    <content type="html"><![CDATA[<p>At one time or another I have experienced all major ways of learning computer science: self study, university classes, and group oriented classroom. This gives me an unique ability to examine the pros and cons each style. Since this is a large subject I have broken it into three blog posts which should be following.</p>
+
+<h2>Lecture Hall aka University</h2>
+
+<p><img src="http://farm5.staticflickr.com/4031/4530228887_78634666ff_z.jpg" title="Lecture hall" alt="Lecture hall" /></p>
+
+<p>No one is a stranger to the classic college formula these days: lecture on monday; test on friday. While University teaching works to educate a large number of students in a (relatively) short time, it does fall into a few pitfalls.</p>
+
+<h3>Cons:</h3>
+
+<ol>
+<li>Large class sizes
+
+<ul>
+<li>hard to reach professer</li>
+<li>little to no sense of ‘comradery’</li>
+<li>tends to move very slowly</li>
+</ul>
+</li>
+<li>Emphasis on tests
+
+<ul>
+<li>completely academic
+
+<ul>
+<li>no real world analogies</li>
+</ul>
+</li>
+<li>leads to a ‘get an A’ mentality rather than a ‘learn this shit’ mentality</li>
+</ul>
+</li>
+<li>Bureaucracy
+
+<ul>
+<li>hard for professors to change class content</li>
+<li>professors tend to burn out from dealing bureaucracy</li>
+<li>stagnation</li>
+<li>forms, hoops, and permissions
+Cost</li>
+<li>average cost of four year degree: $21,657</li>
+<li>this number increases every year</li>
+<li>takes four years of your life
+Focused on theory</li>
+<li>great foundations</li>
+<li>does not really prepare you to develop</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>Pros:</h3>
+
+<ol>
+<li>Degree
+
+<ul>
+<li>accredited university provides a formal proof of completion</li>
+<li>required by some organisations</li>
+<li>most provide an excellent foundation in theory</li>
+</ul>
+</li>
+<li>College experience
+
+<ul>
+<li>large community leads to networking opertunites</li>
+<li>achieve a working knowledge in a variety of subjects</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>To conclude:</h3>
+
+<p>Overall I dislike the current way programing is taught at university. However, I do understand why it is like this; They are paralyzed by bureaucracy and class sizes. It is almost impossible for professors to teach full time and keep up with the changing field of computer science. This forces a greater emphasis on theory which leads to graduates that can explain the O(n) of an algorithm they outlined, but have no idea how to launch a web server or an application.</p>
+
+<p>Next up teaching yourself&#8230;</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby under the hood]]></title>
