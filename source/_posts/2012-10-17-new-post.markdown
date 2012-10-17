@@ -3,32 +3,33 @@ layout: post
 title: "Classroom Vs. bedroom Vs. Lecture Hall (Part one)"
 date: 2012-10-17 12:33
 comments: true
-categories: 
+categories: Education
 ---
 
-At one time or another I have experienced all major ways of learning computer science: self study, university classes, and group oriented classroom. This gives me an unique ability to examine the pros and cons each style. Since this is a large subject I have broken it into three blog posts which should be following.
+At one time or another I have experienced all major ways of learning computer science: self study, university classes, and the group-oriented classroom. This gives me an unique ability to examine the pros and cons of each style. Since this is a large subject I have broken it into three blog posts which should be following.
 
-##Lecture Hall aka University##
+##Lecture Hall aka University
 
 ![Lecture hall](http://farm5.staticflickr.com/4031/4530228887_78634666ff_z.jpg "Lecture hall")
 
-No one is a stranger to the classic college formula these days lecture on monday, test on friday. While university teaching works to educate many students in a (relatively) short time, it does have many drawbacks.
+No one is a stranger to the classic college formula these days: lecture on monday, test on friday. While University teaching works to educate a large number of students in a (relatively) short time, it does have a few drawbacks.
 
-###Cons:###
+###Cons:
 
 1. Large class sizes
-	- hard to reach professer
+	- hard to reach professors
 	- little to no sense of ‘comradery’
-	- tends to move very slowly
+	- slows down the class
+	- hard on professors to give meaningful feedback
 2. Emphasis on tests
 	- completely academic
 		- no real world analogies
 	- leads to a ‘get an A’ mentality rather than a ‘learn this shit’ mentality
 3. Bureaucracy 
 	- hard for professors to change class content
-	- professors tend to burn out from dealing bureaucracy
-	- stagnation 
-	- forms, hoops, and permissions
+	- professors tend to burn out from dealing with bureaucracy
+	- leads to stagnation
+	- forms, hoops, and permissions for every decision
 4. Cost
 	- average cost of four year degree: $21,657
 	- this number increases every year
@@ -37,18 +38,18 @@ No one is a stranger to the classic college formula these days lecture on monday
 	- great foundations
 	- does not really prepare you to develop
 
-###Pros:###
+###Pros:
 
 1. Degree
-	- accredited university provides a formal proof of completion
+	- an accredited university provides formal proof of completion
 	- required by some organisations
 	- most provide an excellent foundation in theory
 2. College experience
-	- large community leads to networking opertunites
+	- a large community leads to networking opportunites
 	- achieve a working knowledge in a variety of subjects
 
-###To conclude:###
+###To conclude:
 
-Overall I dislike the current way programing is taught at university. However, I do understand why it is like this: They are paralyzed by bureaucracy and class sizes. It is almost impossible for professors to teach full time and keep up with the changing field of computer science. This forces a greater emphasis on theory which leads to graduates that can explain the O(n) of an algorithm they outlined, but have no idea how to set up a web server or an application.
+Overall I dislike the current way computer science is taught in universities.In the current environment it is almost impossible for professors to teach full time and keep up with the changing field of computer science. This forces a greater emphasis on theory which leads to graduates that can explain the O(n) of an algorithm they outlined, but have no idea how to launch a web server or an application.
 
 Next up teaching yourself...
