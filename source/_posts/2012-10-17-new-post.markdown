@@ -6,7 +6,7 @@ comments: true
 categories: Education
 ---
 
-At one time or another I have experienced all major ways of learning computer science: self study, university classes, and the group-oriented classroom. This gives me an unique ability to examine the pros and cons of each style. Since this is a large subject I have broken it into three blog posts which should be following.
+At one time or another I have experienced all major ways of learning computer science self study, university classes, and the group-oriented classroom. This gives me an unique ability to examine the pros and cons of each style. Since this is a large subject I have broken it into three blog posts which should be following.
 
 ##Lecture Hall aka University
 
@@ -20,7 +20,7 @@ No one is a stranger to the classic college formula these days: lecture on monda
 	- hard to reach professors
 	- little to no sense of ‘comradery’
 	- slows down the class
-	- hard on professors to give meaningful feedback
+	- hard for professors to give meaningful feedback
 2. Emphasis on tests
 	- completely academic
 		- no real world analogies
@@ -50,6 +50,6 @@ No one is a stranger to the classic college formula these days: lecture on monda
 
 ###To conclude:
 
-Overall I dislike the current way computer science is taught in universities.In the current environment it is almost impossible for professors to teach full time and keep up with the changing field of computer science. This forces a greater emphasis on theory which leads to graduates that can explain the O(n) of an algorithm they outlined, but have no idea how to launch a web server or an application.
+Overall I dislike the current way computer science is taught in universities.  In the current environment it is almost impossible for professors to teach full time and keep up with the changing field of computer science. This forces a greater emphasis on theory which leads to graduates that can explain the O(n) of an algorithm they outlined, but have no idea how to launch a web server or an application.
 
 Next up teaching yourself...
