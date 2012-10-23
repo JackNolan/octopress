@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Classroom Vs. bedroom Vs. Lecture Hall (Part one)"
+title: "Classroom Vs. bedroom Vs. Lecture Hall"
 date: 2012-10-17 12:33
 comments: true
 categories: Education
 ---
 
-At one time or another I have experienced all major ways of learning computer science: self study, university classes, and the group-oriented classroom. This gives me an unique ability to examine the pros and cons of each style. Since this is a large subject I have broken it into three blog posts which should be following.
+At one time or another I have experienced all major ways of learning computer science: self study, university classes, and the group-oriented classroom. This gives me an unique ability to examine the pros and cons of each style.
 
 ##Lecture Hall aka University
 
