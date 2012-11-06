@@ -1,0 +1,99 @@
+---
+layout: post
+title: "ActiveRecord without rails"
+date: 2012-11-06 13:35
+comments: true
+categories: learning
+---
+TL;DR, Activerecord without rails is a headache, but it’s also a good exercise if you are struggling to find the line between activerecord and rails magic.
+
+As developers we break  down problems into smaller manageable pieces and this approach works well when learning a new framework. When first confronting rails I decided to break up the problem and first learn activerecord first. The project I embarked on was to scrape down some information that would serve as the seed data for a future rails application and I decided to do this in a non rails environment using the gem Activerecord.
+
+The first thing I did was design some barebone structure of the classes. One of the objects I wanted to store for this scrape was a product which would represent something with a name and a price.
+```ruby
+class Product < ActiveRecord::Base
+  attr_accessible :name,:price
+end
+```
+Next I need to set up the database for ActiveRecord to use. To do this I would need a migration. So to examine a basic migration I started by making a new rails project and generating an empty migration.
+```bash
+ralis new rails_playground
+cd rails_playground
+rails g migration empty
+```
+```ruby
+class Empty < ActiveRecord::Migration
+  def change
+  end
+end
+```
+This is just a ruby object that inherits from <code>ActiveRecord::Migration</code> so in my project I created a new file and set up my first migration.
+```ruby
+class CreateProductTable < ActiveRecord::Migration
+  def change
+    create_table :products do |i|
+      i.string :name
+      i.decimal :price
+    end
+  end
+end
+```
+This simple migration just creates a new table products. The next step was to find out how to run a migration without the handy rake task. This turned out to be the hardest part of the project since information on ActiveRecord that is not tied to rails is scarce and in the end I decided to drop into irb...
+```ruby
+require “active_record”
+class CreateProductTable < ActiveRecord::Migration
+  def change
+    create_table :products do |i|
+      i.string :name
+      i.decimal :price
+    end
+  end
+end
+migration = CreateProductTable.new
+migration.methods.sort
+```
+Here we have a large list of method this migration object defines. Looking at this list the <code>migrate</code> method jumps out at me for a potential way to run a migration
+so next I tried this method.
+```
+CreateProductTable.new.migrate
+ArgumentError: wrong number of arguments (0 for 1)
+  from /Users/jacknolan/.rvm/gems/ruby-1.9.3-p286/gems/activerecord-3.2.8/lib/active_record/migration.rb:380:in `migrate'
+  from (irb):11
+  from /Users/jacknolan/.rvm/rubies/ruby-1.9.3-p286/bin/irb:16:in `<main>'
+
+```
+Lets try this with an argument, how about the method it should use?
+```ruby
+CreateProductTable.new.migrate :change
+ActiveRecord::ConnectionNotEstablished: ActiveRecord::ConnectionNotEstablished
+  from /Users/jacknolan/.rvm/gems/ruby-1.9.3-p286/gems/activerecord-3.2.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:166:in `connection_pool'
+  from /Users/jacknolan/.rvm/gems/ruby-1.9.3-p286/gems/activerecord-3.2.8/lib/active_record/migration.rb:389:in `migrate'
+  from (irb):12
+  from /Users/jacknolan/.rvm/rubies/ruby-1.9.3-p286/bin/irb:16:in `<main>'
+```
+Thats promising lets look into how to make a connection to a database! After looking around google for awhile I found this code:
+
+```ruby
+ActiveRecord::Base.establish_connection(
+  :adapter => "sqlite3",
+  :database => “development.sqlite3"
+  )
+```
+Just adding this at the top of the migration file, not the best solution but this is just exploring. Then running that file...
+```bash
+ruby 001_create_Product_table.rb 
+-- create_table(:products)
+   -> 0.0196s
+```
+Finally playing around with the Product class either in irb or just in the file...
+```ruby
+ Product.create(:name=>"steel",:price=>7.3)
+=> #<Product id: 1, name: "steal", price: 7.3> 
+ Product.all
+=> #[<Product id: 1, name: "d", price: 7.3>] 
+```
+Thats it with the class made saving the information to the database was as simple as: <code>Item.create(:name=>name, :price=>7.6)</code>
+
+Doing this project helped me to understand the line between active record and rails. Also was really beneficial in learning MVC architecture since I just created a rails model independent of any magic!
+
+
