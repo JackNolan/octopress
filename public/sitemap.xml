@@ -2,22 +2,26 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://jacknolan.herokuapp.com//blog/2012/10/03/day-one/</loc>
-        <lastmod>2012-10-12T16:06:01-04:00</lastmod>
+        <lastmod>2012-10-19T15:36:13-04:00</lastmod>
     </url>
     <url>
         <loc>http://jacknolan.herokuapp.com//blog/2012/10/14/ruby-under-the-hood/</loc>
-        <lastmod>2012-10-17T15:11:31-04:00</lastmod>
+        <lastmod>2012-10-19T15:36:13-04:00</lastmod>
     </url>
     <url>
         <loc>http://jacknolan.herokuapp.com//blog/2012/10/17/new-post/</loc>
-        <lastmod>2012-10-18T00:53:18-04:00</lastmod>
+        <lastmod>2012-10-23T16:06:37-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://jacknolan.herokuapp.com//blog/2012/11/06/active-record-without-rails/</loc>
+        <lastmod>2012-11-06T14:45:41-05:00</lastmod>
     </url>
     <url>
         <loc>http://jacknolan.herokuapp.com//blog/archives/</loc>
-        <lastmod>2012-10-18T00:53:18-04:00</lastmod>
+        <lastmod>2012-11-06T14:45:41-05:00</lastmod>
     </url>
     <url>
         <loc>http://jacknolan.herokuapp.com//</loc>
-        <lastmod>2012-10-18T00:53:18-04:00</lastmod>
+        <lastmod>2012-11-06T14:45:41-05:00</lastmod>
     </url>
 </urlset>

@@ -9,7 +9,7 @@
   <meta name="author" content="Jack Nolan">
 
   
-  <meta name="description" content="At one time or another I have experienced all major ways of learning computer science self study, university classes, and the group-oriented &hellip;">
+  <meta name="description" content="TL;DR, Activerecord without rails is a headache, but it’s also a good exercise if you are struggling to find the line between activerecord and rails &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,7 +80,200 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/10/17/new-post/">Classroom vs. Bedroom vs. Lecture Hall (Part One)</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/11/06/active-record-without-rails/">ActiveRecord Without Rails</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-06T13:35:00-05:00" pubdate data-updated="true">Nov 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>TL;DR, Activerecord without rails is a headache, but it’s also a good exercise if you are struggling to find the line between activerecord and rails magic.</p>
+
+<p>As developers we break  down problems into smaller manageable pieces and this approach works well when learning a new framework. When first confronting rails I decided to break up the problem and first learn activerecord first. The project I embarked on was to scrape down some information that would serve as the seed data for a future rails application and I decided to do this in a non rails environment using the gem Activerecord.</p>
+
+<p>The first thing I did was design some barebone structure of the classes. One of the objects I wanted to store for this scrape was a product which would represent something with a name and a price.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Product</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>  <span class="n">attr_accessible</span> <span class="ss">:name</span><span class="p">,</span><span class="ss">:price</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next I need to set up the database for ActiveRecord to use. To do this I would need a migration. So to examine a basic migration I started by making a new rails project and generating an empty migration.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ralis new rails_playground
+</span><span class='line'><span class="nb">cd </span>rails_playground
+</span><span class='line'>rails g migration empty
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Empty</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is just a ruby object that inherits from <code>ActiveRecord::Migration</code> so in my project I created a new file and set up my first migration.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateProductTable</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:products</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">i</span><span class="o">.</span><span class="n">string</span> <span class="ss">:name</span>
+</span><span class='line'>      <span class="n">i</span><span class="o">.</span><span class="n">decimal</span> <span class="ss">:price</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This simple migration just creates a new table products. The next step was to find out how to run a migration without the handy rake task. This turned out to be the hardest part of the project since information on ActiveRecord that is not tied to rails is scarce and in the end I decided to drop into irb&#8230;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="err">“</span><span class="n">active_record</span><span class="err">”</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">CreateProductTable</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:products</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">i</span><span class="o">.</span><span class="n">string</span> <span class="ss">:name</span>
+</span><span class='line'>      <span class="n">i</span><span class="o">.</span><span class="n">decimal</span> <span class="ss">:price</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">migration</span> <span class="o">=</span> <span class="no">CreateProductTable</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">migration</span><span class="o">.</span><span class="n">methods</span><span class="o">.</span><span class="n">sort</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here we have a large list of method this migration object defines. Looking at this list the <code>migrate</code> method jumps out at me for a potential way to run a migration
+so next I tried this method.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">CreateProductTable</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">migrate</span>
+</span><span class='line'><span class="no">ArgumentError</span><span class="p">:</span> <span class="n">wrong</span> <span class="n">number</span> <span class="n">of</span> <span class="n">arguments</span> <span class="p">(</span><span class="mi">0</span> <span class="k">for</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">from</span> <span class="sr">/Users/</span><span class="n">jacknolan</span><span class="o">/.</span><span class="n">rvm</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span><span class="o">-</span><span class="n">p286</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">activerecord</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">8</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">active_record</span><span class="o">/</span><span class="n">migration</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">380</span><span class="ss">:in</span> <span class="sb">`migrate&#39;</span>
+</span><span class='line'><span class="sb">  from (irb):11</span>
+</span><span class='line'><span class="sb">  from /Users/jacknolan/.rvm/rubies/ruby-1.9.3-p286/bin/irb:16:in `</span><span class="o">&lt;</span><span class="n">main</span><span class="o">&gt;</span><span class="err">&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Lets try this with an argument, how about the method it should use?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">CreateProductTable</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">migrate</span> <span class="ss">:change</span>
+</span><span class='line'><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">ConnectionNotEstablished</span><span class="p">:</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">ConnectionNotEstablished</span>
+</span><span class='line'>  <span class="n">from</span> <span class="sr">/Users/</span><span class="n">jacknolan</span><span class="o">/.</span><span class="n">rvm</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span><span class="o">-</span><span class="n">p286</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">activerecord</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">8</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">active_record</span><span class="o">/</span><span class="n">connection_adapters</span><span class="o">/</span><span class="n">abstract</span><span class="o">/</span><span class="n">connection_specification</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">166</span><span class="ss">:in</span> <span class="sb">`connection_pool&#39;</span>
+</span><span class='line'><span class="sb">  from /Users/jacknolan/.rvm/gems/ruby-1.9.3-p286/gems/activerecord-3.2.8/lib/active_record/migration.rb:389:in `</span><span class="n">migrate</span><span class="s1">&#39;</span>
+</span><span class='line'><span class="s1">  from (irb):12</span>
+</span><span class='line'><span class="s1">  from /Users/jacknolan/.rvm/rubies/ruby-1.9.3-p286/bin/irb:16:in `&lt;main&gt;&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thats promising lets look into how to make a connection to a database! After looking around google for awhile I found this code:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="o">.</span><span class="n">establish_connection</span><span class="p">(</span>
+</span><span class='line'>  <span class="ss">:adapter</span> <span class="o">=&gt;</span> <span class="s2">&quot;sqlite3&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="ss">:database</span> <span class="o">=&gt;</span> <span class="err">“</span><span class="n">development</span><span class="o">.</span><span class="n">sqlite3</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="s2">  )</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Just adding this at the top of the migration file, not the best solution but this is just exploring. Then running that file&#8230;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ruby 001_create_Product_table.rb
+</span><span class='line'>-- create_table<span class="o">(</span>:products<span class="o">)</span>
+</span><span class='line'>   -&gt; 0.0196s
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Finally playing around with the Product class either in irb or just in the file&#8230;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="no">Product</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:name</span><span class="o">=&gt;</span><span class="s2">&quot;steel&quot;</span><span class="p">,</span><span class="ss">:price</span><span class="o">=&gt;</span><span class="mi">7</span><span class="o">.</span><span class="mi">3</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#&lt;Product id: 1, name: &quot;steal&quot;, price: 7.3&gt; </span>
+</span><span class='line'> <span class="no">Product</span><span class="o">.</span><span class="n">all</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="c1">#[&lt;Product id: 1, name: &quot;d&quot;, price: 7.3&gt;] </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thats it with the class made saving the information to the database was as simple as: <code>Item.create(:name=>name, :price=>7.6)</code></p>
+
+<p>Doing this project helped me to understand the line between active record and rails. Also was really beneficial in learning MVC architecture since I just created a rails model independent of any magic!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/17/new-post/">Classroom vs. Bedroom vs. Lecture Hall</a></h1>
     
     
       <p class="meta">
@@ -103,7 +296,7 @@
   </header>
 
 
-  <div class="entry-content"><p>At one time or another I have experienced all major ways of learning computer science self study, university classes, and the group-oriented classroom. This gives me an unique ability to examine the pros and cons of each style. Since this is a large subject I have broken it into three blog posts which should be following.</p>
+  <div class="entry-content"><p>At one time or another I have experienced all major ways of learning computer science: self study, university classes, and the group-oriented classroom. This gives me an unique ability to examine the pros and cons of each style.</p>
 
 <h2>Lecture Hall aka University</h2>
 
@@ -290,7 +483,11 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/10/17/new-post/">Classroom Vs. bedroom Vs. Lecture Hall (Part one)</a>
+        <a href="/blog/2012/11/06/active-record-without-rails/">ActiveRecord without rails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/17/new-post/">Classroom Vs. bedroom Vs. Lecture Hall</a>
       </li>
     
       <li class="post">
