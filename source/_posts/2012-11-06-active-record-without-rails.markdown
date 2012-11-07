@@ -92,7 +92,7 @@ Finally playing around with the Product class either in irb or just in the file.
  Product.all
 => #[<Product id: 1, name: "d", price: 7.3>] 
 ```
-Thats it with the class made saving the information to the database was as simple as: <code>Item.create(:name=>name, :price=>7.6)</code>
+Thats it with the class made saving the information to the database was as simple as: <code>Product.create(:name=>name, :price=>7.6)</code>
 
 Doing this project helped me to understand the line between active record and rails. Also was really beneficial in learning MVC architecture since I just created a rails model independent of any magic!
 
