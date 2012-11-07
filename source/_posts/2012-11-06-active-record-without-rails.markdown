@@ -90,7 +90,7 @@ Finally playing around with the Product class either in irb or just in the file.
  Product.create(:name=>"steel",:price=>7.3)
 => #<Product id: 1, name: "steal", price: 7.3> 
  Product.all
-=> #[<Product id: 1, name: "d", price: 7.3>] 
+=> #[<Product id: 1, name: "steal", price: 7.3>] 
 ```
 Thats it with the class made saving the information to the database was as simple as: <code>Product.create(:name=>name, :price=>7.6)</code>
 
