@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learning | Adventures in code]]></title>
   <link href="http://jacknolan.herokuapp.com//blog/categories/learning/atom.xml" rel="self"/>
   <link href="http://jacknolan.herokuapp.com//"/>
-  <updated>2012-11-14T00:11:52-05:00</updated>
+  <updated>2012-11-14T09:57:10-05:00</updated>
   <id>http://jacknolan.herokuapp.com//</id>
   <author>
     <name><![CDATA[Jack Nolan]]></name>
@@ -109,7 +109,7 @@ Finally playing around with the Product class either in irb or just in the file.
  Product.create(:name=&gt;"steel",:price=&gt;7.3)
 =&gt; #&lt;Product id: 1, name: "steal", price: 7.3&gt;
  Product.all
-=&gt; #[&lt;Product id: 1, name: "d", price: 7.3&gt;]
+=&gt; #[&lt;Product id: 1, name: "steal", price: 7.3&gt;]
 </code>
 Thats it with the class made saving the information to the database was as simple as: <code>Product.create(:name=>name, :price=>7.6)</code></p>
 
