@@ -1,0 +1,100 @@
+---
+layout: post
+title: "5 cool things ruby does"
+date: 2012-11-13 23:37
+comments: true
+categories: 
+---
+####5) collect/inject/select/each...
+
+  The easie of which ruby allow me to iterate over an collection without having to worry about the mundane details is amazing. Need to find the total of an array of prices? Here is inject to help!
+```ruby
+ [5.32,7.65,8.94].inject do |total,price|
+     total +=price
+   end
+ => 21.91
+```
+
+####4) blocks / yield
+
+  The power of ruby is staggering and it starts at the block. Lets take an example I used the other day. I need to highlight certain output so in order to remain DRY I created this function.
+```ruby
+ def display_all
+   puts "================"
+   yield
+   puts "================"
+   end
+ => nil 
+ display_all do 
+     puts "hello world"
+   end
+================
+hello world
+================
+```
+
+####3) send
+
+ Send allows you to call a method from the name of the method. This allows you to be flexible with your code and in a lot of places remain dry. Lets consider you have to initialize an object and set five fields money,age,happiness,height and weight all to 9001 we could do it like this.
+```ruby
+  jack = Person.new
+  jack.money = 0
+  jack.age = 0
+  ...
+```
+Or we could save ourselves some typing and use our send method
+```ruby
+[:money=,:age=,:happiness=,:height= ,:weight=].each do |e|
+      jack.send(e,9001)
+   end
+ => [:money=, :age=, :happiness=, :height=, :weight=] 
+ jack.age
+ => 9001 
+```
+note: This become incredibly powerful (and cool) when combined with introspection but thats another whole other post.
+
+####2) define_method
+
+  Allowing you to define instance methods of a class on the fly. This has amazing power in allowing you to refactor code and create some cool tools. For example we coulde create our own attr_accessor function.
+```ruby
+  
+class Person
+   def self.our_own_attr_accessor(*method_names)
+    method_names.each do |meth|
+      define_method meth do
+        instance_variable_get "@meth"
+      end
+      define_method "#{meth}=" do |arg|
+        instance_variable_set("@meth",arg)
+      end
+    end
+  end
+  our_own_attr_accessor :name
+end
+
+
+ jack.name
+ => nil 
+ jack.name = "jack"
+ => "jack" 
+ jack.name
+ => "jack" 
+```
+
+There is a lot going on here. The define_method method gets called twice once to create a method named <code>name</code> and once to create a method named <code>name=</code>. These then use some methods build into the Object class to act as a getter and setter.
+
+####1) method_missing
+
+ This method gets called when a method is undefined and could allow you to define it or provide a custom response. So if we wanted to we could create a very forgiving interface for an object.
+```ruby
+  class Computers
+  def method_missing(*args)
+    puts "I can't do that jim"
+    true
+  end
+  end
+1.9.3p286 :046 > c.car
+I can't do that jim
+ => true 
+```
+These are just 5 things that when I first ran into them I had one of those  "ahh thats cool" moments which made me <3 ruby.

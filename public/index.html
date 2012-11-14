@@ -9,7 +9,7 @@
   <meta name="author" content="Jack Nolan">
 
   
-  <meta name="description" content="TL;DR, Activerecord without rails is a headache, but it’s also a good exercise if you are struggling to find the line between activerecord and rails &hellip;">
+  <meta name="description" content="5) collect/inject/select/each&#8230; The easie of which ruby allow me to iterate over an collection without having to worry about the mundane details &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +74,200 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/13/title/">5 Cool Things Ruby Does</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-13T23:37:00-05:00" pubdate data-updated="true">Nov 13<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>5) collect/inject/select/each&#8230;</h4>
+
+<p>  The easie of which ruby allow me to iterate over an collection without having to worry about the mundane details is amazing. Need to find the total of an array of prices? Here is inject to help!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="o">[</span><span class="mi">5</span><span class="o">.</span><span class="mi">32</span><span class="p">,</span><span class="mi">7</span><span class="o">.</span><span class="mi">65</span><span class="p">,</span><span class="mi">8</span><span class="o">.</span><span class="mi">94</span><span class="o">].</span><span class="n">inject</span> <span class="k">do</span> <span class="o">|</span><span class="n">total</span><span class="p">,</span><span class="n">price</span><span class="o">|</span>
+</span><span class='line'>     <span class="n">total</span> <span class="o">+=</span><span class="n">price</span>
+</span><span class='line'>   <span class="k">end</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="mi">21</span><span class="o">.</span><span class="mi">91</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>4) blocks / yield</h4>
+
+<p>  The power of ruby is staggering and it starts at the block. Lets take an example I used the other day. I need to highlight certain output so in order to remain DRY I created this function.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">def</span> <span class="nf">display_all</span>
+</span><span class='line'>   <span class="nb">puts</span> <span class="s2">&quot;================&quot;</span>
+</span><span class='line'>   <span class="k">yield</span>
+</span><span class='line'>   <span class="nb">puts</span> <span class="s2">&quot;================&quot;</span>
+</span><span class='line'>   <span class="k">end</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="kp">nil</span>
+</span><span class='line'> <span class="n">display_all</span> <span class="k">do</span>
+</span><span class='line'>     <span class="nb">puts</span> <span class="s2">&quot;hello world&quot;</span>
+</span><span class='line'>   <span class="k">end</span>
+</span><span class='line'><span class="o">================</span>
+</span><span class='line'><span class="n">hello</span> <span class="n">world</span>
+</span><span class='line'><span class="o">================</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>3) send</h4>
+
+<p> Send allows you to call a method from the name of the method. This allows you to be flexible with your code and in a lot of places remain dry. Lets consider you have to initialize an object and set five fields money,age,happiness,height and weight all to 9001 we could do it like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">jack</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'>  <span class="n">jack</span><span class="o">.</span><span class="n">money</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="n">jack</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or we could save ourselves some typing and use our send method</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="ss">:money</span><span class="o">=</span><span class="p">,</span><span class="ss">:age</span><span class="o">=</span><span class="p">,</span><span class="ss">:happiness</span><span class="o">=</span><span class="p">,</span><span class="ss">:height</span><span class="o">=</span> <span class="p">,</span><span class="ss">:weight</span><span class="o">=].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">jack</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="mi">9001</span><span class="p">)</span>
+</span><span class='line'>   <span class="k">end</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:money</span><span class="o">=</span><span class="p">,</span> <span class="ss">:age</span><span class="o">=</span><span class="p">,</span> <span class="ss">:happiness</span><span class="o">=</span><span class="p">,</span> <span class="ss">:height</span><span class="o">=</span><span class="p">,</span> <span class="ss">:weight</span><span class="o">=]</span>
+</span><span class='line'> <span class="n">jack</span><span class="o">.</span><span class="n">age</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="mi">9001</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>note: This become incredibly powerful (and cool) when combined with introspection but thats another whole other post.</p>
+
+<h4>2) define_method</h4>
+
+<p>  Allowing you to define instance methods of a class on the fly. This has amazing power in allowing you to refactor code and create some cool tools. For example we coulde create our own attr_accessor function.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Person</span>
+</span><span class='line'>   <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">our_own_attr_accessor</span><span class="p">(</span><span class="o">*</span><span class="n">method_names</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">method_names</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">meth</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">define_method</span> <span class="n">meth</span> <span class="k">do</span>
+</span><span class='line'>        <span class="nb">instance_variable_get</span> <span class="s2">&quot;@meth&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>      <span class="n">define_method</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">meth</span><span class="si">}</span><span class="s2">=&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">arg</span><span class="o">|</span>
+</span><span class='line'>        <span class="nb">instance_variable_set</span><span class="p">(</span><span class="s2">&quot;@meth&quot;</span><span class="p">,</span><span class="n">arg</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">our_own_attr_accessor</span> <span class="ss">:name</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'> <span class="n">jack</span><span class="o">.</span><span class="n">name</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="kp">nil</span>
+</span><span class='line'> <span class="n">jack</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;jack&quot;</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="s2">&quot;jack&quot;</span>
+</span><span class='line'> <span class="n">jack</span><span class="o">.</span><span class="n">name</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="s2">&quot;jack&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There is a lot going on here. The define_method method gets called twice once to create a method named <code>name</code> and once to create a method named <code>name=</code>. These then use some methods build into the Object class to act as a getter and setter.</p>
+
+<h4>1) method_missing</h4>
+
+<p> This method gets called when a method is undefined and could allow you to define it or provide a custom response. So if we wanted to we could create a very forgiving interface for an object.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">class</span> <span class="nc">Computers</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;I can&#39;t do that jim&quot;</span>
+</span><span class='line'>    <span class="kp">true</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">3</span><span class="n">p286</span> <span class="p">:</span><span class="mo">046</span> <span class="o">&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">car</span>
+</span><span class='line'><span class="n">I</span> <span class="n">can</span><span class="err">&#39;</span><span class="n">t</span> <span class="k">do</span> <span class="n">that</span> <span class="n">jim</span>
+</span><span class='line'> <span class="o">=&gt;</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>These are just 5 things that when I first ran into them I had one of those  &#8220;ahh thats cool&#8221; moments which made me &lt;3 ruby.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -481,6 +675,10 @@ so next I tried this method.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/11/13/title/">5 cool things ruby does</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/11/06/active-record-without-rails/">ActiveRecord without rails</a>
