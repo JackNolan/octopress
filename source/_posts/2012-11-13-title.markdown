@@ -61,10 +61,10 @@ class Person
    def self.our_own_attr_accessor(*method_names)
     method_names.each do |meth|
       define_method meth do
-        eval("@#{meth}")
+        instance_variable_get "@#{meth}"
       end
       define_method "#{meth}=" do |arg|
-        send("instance_variable_set","@#{meth}",arg)
+        instance_variable_set "@#{meth}",arg
       end
     end
   end
