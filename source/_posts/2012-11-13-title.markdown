@@ -57,28 +57,27 @@ note: This become incredibly powerful (and cool) when combined with introspectio
 
   Allowing you to define instance methods of a class on the fly. This has amazing power in allowing you to refactor code and create some cool tools. For example we coulde create our own attr_accessor function.
 ```ruby
-  
 class Person
    def self.our_own_attr_accessor(*method_names)
     method_names.each do |meth|
       define_method meth do
-        instance_variable_get "@meth"
+        eval("@#{meth}")
       end
       define_method "#{meth}=" do |arg|
-        instance_variable_set("@meth",arg)
+        send("instance_variable_set","@#{meth}",arg)
       end
     end
   end
-  our_own_attr_accessor :name
+  our_own_attr_accessor :name, :age
 end
 
-
- jack.name
- => nil 
+ jack = Person.new
  jack.name = "jack"
- => "jack" 
  jack.name
- => "jack" 
+ => "jack"
+ jack.age = 97
+ jack.age
+ => 97
 ```
 
 There is a lot going on here. The define_method method gets called twice once to create a method named <code>name</code> and once to create a method named <code>name=</code>. These then use some methods build into the Object class to act as a getter and setter.
