@@ -4,7 +4,7 @@
   <title><![CDATA[Adventures in code]]></title>
   <link href="http://jacknolan.herokuapp.com//atom.xml" rel="self"/>
   <link href="http://jacknolan.herokuapp.com//"/>
-  <updated>2012-11-14T09:57:10-05:00</updated>
+  <updated>2012-12-10T17:43:01-05:00</updated>
   <id>http://jacknolan.herokuapp.com//</id>
   <author>
     <name><![CDATA[Jack Nolan]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[First Ruby Motion App]]></title>
+    <link href="http://jacknolan.herokuapp.com//blog/2012/12/10/first-ruby-motion-app/"/>
+    <updated>2012-12-10T17:42:00-05:00</updated>
+    <id>http://jacknolan.herokuapp.com//blog/2012/12/10/first-ruby-motion-app</id>
+    <content type="html"><![CDATA[<p>I recently dived into rubymotion head first and since there is a definite lack of quality tutorials out there I decided to outline my first ruby motion project. The goal of the project was simple, say display hello world to the user. My first set was setting up the app delicate. The following code is the very generic setup.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">application</span><span class="p">,</span><span class="n">didFinishLaunchingWithOptions</span><span class="ss">:launchOptions</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@window</span> <span class="o">=</span> <span class="no">UIWindow</span><span class="o">.</span><span class="n">alloc</span><span class="o">.</span><span class="n">initWithFrame</span><span class="p">(</span><span class="no">UIScreen</span><span class="o">.</span><span class="n">mainScreen</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@window</span><span class="o">.</span><span class="n">rootViewController</span> <span class="o">=</span> <span class="no">HomeController</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'>    <span class="vi">@window</span><span class="o">.</span><span class="n">makeKeyAndVisible</span>
+</span><span class='line'>    <span class="kp">true</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will initialize the window and set the initial controller to the homeController. Then in order for this to work I needed to define the HomeController, so in the controllers/home_controller.rb I define my controller.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">HomeController</span> <span class="o">&lt;</span> <span class="no">UIViewController</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">loadView</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">view</span> <span class="o">=</span> <span class="no">UIView</span><span class="o">.</span><span class="n">alloc</span><span class="o">.</span><span class="n">init</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">viewDidLoad</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This defines the homecontroller and sets the view local variable. This variable will be used to add UI elements to the view. So next is adding a UILabel to this view using the following code</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">label</span> <span class="o">=</span> <span class="no">UILabel</span><span class="o">.</span><span class="n">alloc</span><span class="o">.</span><span class="n">initWithFrame</span><span class="p">(</span><span class="o">[[</span><span class="mi">15</span><span class="p">,</span><span class="mi">100</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">140</span><span class="p">,</span><span class="mi">70</span><span class="o">]]</span><span class="p">)</span>
+</span><span class='line'><span class="n">label</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;helloworld&quot;</span>
+</span><span class='line'><span class="n">view</span><span class="o">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This code initializes a new UILabel in the given frame the adds the text to display and finally adds it to the view initialized earlier to be displayed. And thats it! We now have our generic helloworld application next thing to do: put it on the app store and make 1 million dollars.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[5 cool things ruby does]]></title>
