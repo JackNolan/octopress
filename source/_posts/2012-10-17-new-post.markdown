@@ -51,5 +51,3 @@ No one is a stranger to the classic college formula these days: lecture on monda
 ###To conclude:
 
 Overall I dislike the current way computer science is taught in universities.  In the current environment it is almost impossible for professors to teach full time and keep up with the changing field of computer science. This forces a greater emphasis on theory which leads to graduates that can explain the O(n) of an algorithm they outlined, but have no idea how to launch a web server or an application.
-
-Next up teaching yourself...

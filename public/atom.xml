@@ -4,7 +4,7 @@
   <title><![CDATA[Adventures in code]]></title>
   <link href="http://jacknolan.herokuapp.com//atom.xml" rel="self"/>
   <link href="http://jacknolan.herokuapp.com//"/>
-  <updated>2012-12-10T17:43:01-05:00</updated>
+  <updated>2012-12-13T19:11:00-05:00</updated>
   <id>http://jacknolan.herokuapp.com//</id>
   <author>
     <name><![CDATA[Jack Nolan]]></name>
@@ -488,8 +488,6 @@ so next I tried this method.</p>
 <h3>To conclude:</h3>
 
 <p>Overall I dislike the current way computer science is taught in universities.  In the current environment it is almost impossible for professors to teach full time and keep up with the changing field of computer science. This forces a greater emphasis on theory which leads to graduates that can explain the O(n) of an algorithm they outlined, but have no idea how to launch a web server or an application.</p>
-
-<p>Next up teaching yourself&#8230;</p>
 ]]></content>
   </entry>
   
